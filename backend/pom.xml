@@ -61,6 +61,8 @@
 	</dependencies>
 
 	<build>
+		<!--optional - specify the name for our jar file-->
+		<finalName>students-backend-app</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
