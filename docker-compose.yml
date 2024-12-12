@@ -17,13 +17,23 @@ services:
     build: ./backend 
     restart: always
     ports:
-      - "4001:4001"
+      - "5001:5001"
     environment:
       - DB_URL=${DB_URL}
       - DB_USERNAME=${MYSQL_USER}
       - DB_PASSWORD=${MYSQL_PASSWORD}
     depends_on:
       - mysql
+
+  frontend:
+    build: ./frontend 
+    restart: always
+    ports:
+      - "5002:5002"
+    environment:
+      - VITE_APP_BACKEND_URL=http://backend:5001/api
+    depends_on:
+      - backend
 
 volumes:
   mysql_data:
