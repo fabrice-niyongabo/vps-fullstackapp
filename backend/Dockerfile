@@ -1,4 +1,3 @@
-# Stage 1: Build the application
 FROM maven:latest AS build
 
 # Set the working directory
