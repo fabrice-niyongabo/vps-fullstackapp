@@ -26,12 +26,14 @@ services:
       - mysql
 
   frontend:
-    build: ./frontend 
+    build: 
+      context: ./frontend
+      args:
+        # provide env variables to be used when building our frontend
+        - VITE_APP_BACKEND_URL=http://localhost:5001/api
     restart: always
     ports:
       - "5002:5002"
-    environment:
-      - VITE_APP_BACKEND_URL=http://backend:5001/api
     depends_on:
       - backend
 

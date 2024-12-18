@@ -6,6 +6,10 @@ RUN npm install -g serve
 # Set the working directory
 WORKDIR /app
 
+# Pass the environment variable during build process
+ARG VITE_APP_BACKEND_URL
+ENV VITE_APP_BACKEND_URL=${VITE_APP_BACKEND_URL}
+
 # Copy package.json and package-lock.json to install dependencies
 COPY package*.json ./
 
